@@ -2,20 +2,16 @@
 	<header>
 		<p class="date"><%= @entry.created_at.strftime('%A, %B %d') %></p>
 		<h1><%= @entry.title %></h1>
-
+		<hr>
 	</header>
 
 	<div id="content">
-		<%=  @entry.content %>
+		<%=  simple_format @entry.content %>
 	</div>
-
 
 		<div id="admin_links">
 			<%= link_to "Edit Entry", edit_entry_path(@entry) %>
 			<%= link_to "Delete Entry", entry_path(@entry), method: :delete, data: { confirm: "Are you sure?" } %>
 		</div>
-
-
-
-
+		<hr>
 </div>

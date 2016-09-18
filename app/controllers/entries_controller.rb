@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
 	before_action :find_entry, only: [:show, :edit, :update, :destroy]
 	def index
-		@entries = Entry.all.order("created_at desc")
+		@entries = Entry.all.order("created_at desc").paginate(page: params[:page], per_page: 2)
 	end
 
 	def new
