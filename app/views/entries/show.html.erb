@@ -1,8 +1,21 @@
-<%= @entry.title %><br>
-<%= @entry.content %>
+<div id="post_show_content" class="skinny_wrapper wrapper_padding">
+	<header>
+		<p class="date"><%= @entry.created_at.strftime('%A, %B %d') %></p>
+		<h1><%= @entry.title %></h1>
 
-<br>
-<br>
+	</header>
 
-<%= link_to "Edit", edit_entry_path(@entry) %>
-<%= link_to "Delete", entry_path(@entry), method: :delete, data: { confirm: "You sure?"} %>
+	<div id="content">
+		<%=  @entry.content %>
+	</div>
+
+
+		<div id="admin_links">
+			<%= link_to "Edit Entry", edit_entry_path(@entry) %>
+			<%= link_to "Delete Entry", entry_path(@entry), method: :delete, data: { confirm: "Are you sure?" } %>
+		</div>
+
+
+
+
+</div>

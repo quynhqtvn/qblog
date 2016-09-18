@@ -1,0 +1,18 @@
+<div class="wrapper wrapper_padding clearfix">
+	<div class="col-1 about homepage_content">
+		<h2>About</h2>
+		<hr>
+		<p>Hello world</p>
+		<p>This is About Page.</p>
+		<p>There are nothing here and I will write something as soon as posible</p>
+	</div>
+	<div class="col-2 homepage_content">
+		<h2>Entries</h2>
+		<hr>
+		<% @entries.each do |entry| %>
+			<h3><a href="#"><%= link_to entry.title, entry %></a></h3>
+			<p class="date"><%= entry.created_at.strftime("%A, %b %d") %></p>
+		<% end %>
+	</div>
+	
+</div>
