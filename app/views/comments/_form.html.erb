@@ -1,0 +1,21 @@
+<%= form_for @comment do |f| %>
+	<% if @comment.errors.any? %>
+		<h2><%= pluralize(@comment.errors.count, "error") %> prevented this from saving:</h2>
+		<ul>
+			<% @comment.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+			<% end %>
+		</ul>
+	<% end %>
+
+	<%= f.label :title %><br>
+	<%= f.text_field :email %>
+	<br>
+	<br>
+	<%= f.label :title, "Comments" %><br>
+	<%= f.text_area :content %>
+
+	<br>
+	<br>
+	<%= f.submit %>
+<% end %>
