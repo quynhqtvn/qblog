@@ -8,7 +8,7 @@
 	<div id="content">
 		<%=  simple_format @entry.content %>
 	</div>
-	<% if user_signed_in? %>
+	<% if (current_user && @entry == current_user.entries.find_by(id: params[:id])) %>
 		<div id="admin_links">
 			<%= link_to "Edit Entry", edit_entry_path(@entry) %>
 			<%= link_to "Delete Entry", entry_path(@entry), method: :delete, data: { confirm: "Are you sure?" } %>
