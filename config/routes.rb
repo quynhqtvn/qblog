@@ -3,7 +3,7 @@ Rails.application.routes.draw do
  resources :entries  do
  	resources :comments
  end
- resources :user, only: [:edit, :update]
+ resource :user, only: [:edit, :update]
  get 'welcome/index'
  root 'welcome#index'
 
