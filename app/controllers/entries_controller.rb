@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 	before_action :correct_user, only: [:edit, :destroy]
 	def index
-		@entries = Entry.all.order("created_at desc").paginate(page: params[:page], per_page: 2)
+		@entries = Entry.all.order("created_at desc").paginate(page: params[:page], per_page: 3)
 	end
 
 	def new
