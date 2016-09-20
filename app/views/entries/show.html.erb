@@ -15,5 +15,11 @@
 		</div>
 	<% end %>
 		<hr>
-		<%= render 'comment' %>
+		<div id="comment">
+			<h2><%= @entry.comments.count %> Comments</h2>
+			<%= render @entry.comments %>
+
+			<h3>Add a comment:</h3>
+			<%= render"comments/form" %>
+		</div>
 </div>

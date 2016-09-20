@@ -3,6 +3,15 @@ class UsersController < ApplicationController
 		@user = current_user
 	end
 
+	def index
+    	@users = User.where(activated: true).paginate(page: params[:page])
+  	end
+
+	def show
+		@user = User.find(params[:id])
+		@etries = @user.entries.paginate(page:params[:page])
+	end
+
 	def update
 		@user = current_user
 		if @user.update(user_params)
@@ -15,4 +24,5 @@ class UsersController < ApplicationController
 	private
 	def user_params
 		params.require(:user).permit(:email, :password, :password_confirmation)
+	end
 end
