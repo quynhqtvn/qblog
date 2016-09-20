@@ -1,0 +1,9 @@
+<h1 id="page_title"> All Users </h1>
+
+<div id="posts_wrapper" class="skinny_wrapper">
+	<% @users = User.all %>
+	<% @users.each do |user| %>
+	  <%= user.id %><br/>
+	  <%= link_to user.email, user_path(user)%><br/>
+	<% end %>
+</div>
