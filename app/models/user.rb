@@ -16,7 +16,13 @@ class User < ActiveRecord::Base
 	has_many :followers, through: :passive_relationships, source: :follower
 
 
-	
+	def feed
+		following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+    	Entry.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
+	end
+
 	def follow(other_user)
 		active_relationships.create(followed_id: other_user.id)
 	end
@@ -29,6 +35,7 @@ class User < ActiveRecord::Base
 	def following?(other_user)
 		following.include?(other_user)
 	end
+
 
 
 
