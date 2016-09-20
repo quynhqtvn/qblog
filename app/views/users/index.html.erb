@@ -3,7 +3,7 @@
 <div id="posts_wrapper" class="skinny_wrapper">
 	<% @users = User.all %>
 	<% @users.each do |user| %>
-	  <%= user.id %><br/>
-	  <%= link_to user.email, user_path(user)%><br/>
+	  <p>ID: <%= user.id %><br>
+	  Email: <%= link_to user.email, user_path(user)%></p>
 	<% end %>
 </div>

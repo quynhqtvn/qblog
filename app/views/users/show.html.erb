@@ -1,20 +1,10 @@
-<h1 id="page_title"><%= current_user.user_name %></h1>
 
 <div id="posts_wrapper" class="skinny_wrapper">
-  
-  <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
-        <h1>
-          <%= @user.user_name %>
-        </h1>
-      </section>
-      <section class="stats">
+        <h1><%= @user.user_name || @user.email %></h1>
         <%= render 'shared/stats' %>
-      </section>
-    </aside>
-    <div id="post_show_content" class="skinny_wrapper wrapper_padding">
-    <%= render 'follow_form' if user_signed_in? %>
+        <%= render 'follow_form' if user_signed_in? %>
+
+
       <% if @user.entries.any? %>
         <h3>Entries (<%= @user.entries.count %>)</h3>
         <ol class="microposts">
@@ -22,8 +12,6 @@
             <%= link_to entry.title, entry_path(entry) %><br>
           <%end %>
         </ol>
-
       <% end %>
-    </div>
-  </div>
 </div>
+
