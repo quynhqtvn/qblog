@@ -1,6 +1,7 @@
 <div id="post_show_content" class="skinny_wrapper wrapper_padding">
 	<header>
 		<p class="date"><%= @entry.created_at.strftime('%A, %B %d') %></p>
+		<p class="date"><%= @entry.user.user_name || @entry.user.email %></p>
 		<h1><%= @entry.title %></h1>
 		<hr>
 	</header>
