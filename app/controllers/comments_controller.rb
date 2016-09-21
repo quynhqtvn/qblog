@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
 	before_action :find_entry
 	before_action :find_comment, only: [:destroy, :edit, :update]
+
+	def index
+		@comments = Comment.order("created_at desc").paginate(page: params[:page], per_page: 5)
+	end
+
 	def create
 		@entry = Entry.find(params[:entry_id])
 		@comment = @entry.comments.create(params[:comment].permit(:content))
