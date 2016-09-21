@@ -1,7 +1,4 @@
 <%= form_for([@entry, @comment]) do |f| %>
-	<p>
-		<%= f.label :content %><br>
-		<%= f.text_area :content %>
-	</p>
-	<p> <%= f.submit %></p>
+	<p><%= f.text_area :content %></p>
+	<p><%= f.submit %></p>
 <% end %>

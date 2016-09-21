@@ -10,7 +10,11 @@
   <p><%= link_to 'Delete', [comment.entry, comment],
                   method: :delete,
                   class: "button",
-                  data: { confirm: 'Are you sure?' } %></p>
+                  data: { confirm: 'Are you sure?' } %>
+                    
+      <%= link_to 'Edit', edit_entry_comment_path(comment.entry,comment),
+                  class: "button" %>
+  </p>
 
   <% end %>
 </div>
